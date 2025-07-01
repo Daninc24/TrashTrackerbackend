@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: rashtrackr-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        value: <your_mongodb_atlas_connection_string>
+      - key: JWT_SECRET
+        value: <your_jwt_secret>
+      - key: SESSION_SECRET
+        value: <your_session_secret>
+      - key: REDIS_HOST
+        value: <your_redis_host>
+      - key: REDIS_PORT
+        value: <your_redis_port>
+      - key: REDIS_PASSWORD
+        value: <your_redis_password>
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        value: <your_email@gmail.com>
+      - key: SMTP_PASS
+        value: <your_email_password>
+      - key: SMTP_FROM
+        value: noreply@rashtrackr.com
+      - key: ELASTICSEARCH_URL
+        value: <your_elasticsearch_url>
+      - key: ELASTICSEARCH_USERNAME
+        value: <your_es_user>
+      - key: ELASTICSEARCH_PASSWORD
+        value: <your_es_password>
+      - key: NODE_ENV
+        value: production 
